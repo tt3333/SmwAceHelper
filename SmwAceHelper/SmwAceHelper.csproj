@@ -5,6 +5,71 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <Version>0.0.0.1</Version>
+    <Authors>T.T</Authors>
+    <Copyright>© 2022 T.T</Copyright>
+    <Product>SMW ACE Helper</Product>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <AssemblyTitle>$(Product)</AssemblyTitle>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Mario_Left.png" />
+    <None Remove="Resources\Mario_Left_Shell.png" />
+    <None Remove="Resources\Mario_Left_Yoshi.png" />
+    <None Remove="Resources\Mario_Left_Yoshi_Shell.png" />
+    <None Remove="Resources\Mario_Right.png" />
+    <None Remove="Resources\Mario_Right_Shell.png" />
+    <None Remove="Resources\Mario_Right_Yoshi.png" />
+    <None Remove="Resources\Mario_Right_Yoshi_Shell.png" />
+    <None Remove="Resources\YI2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\icon.ico" />
+    <Resource Include="Resources\Mario_Left.png" />
+    <Resource Include="Resources\Mario_Left_Shell.png" />
+    <Resource Include="Resources\Mario_Left_Yoshi.png" />
+    <Resource Include="Resources\Mario_Left_Yoshi_Shell.png" />
+    <Resource Include="Resources\Mario_Right.png" />
+    <Resource Include="Resources\Mario_Right_Shell.png" />
+    <Resource Include="Resources\Mario_Right_Yoshi.png" />
+    <Resource Include="Resources\Mario_Right_Yoshi_Shell.png" />
+    <Resource Include="Resources\YI2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="ReactiveProperty.WPF" Version="8.1.2" />
+    <PackageReference Include="WPFLocalizeExtension" Version="3.9.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\StringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StringResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\StringResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>

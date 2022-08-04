@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="SmwAceHelper.Views.StrategyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:m="clr-namespace:SmwAceHelper.Models"
+             xmlns:u="clr-namespace:SmwAceHelper.Utilities"
+             xmlns:v="clr-namespace:SmwAceHelper.Views"
+             xmlns:vm="clr-namespace:SmwAceHelper.ViewModels"
+             lex:ResxLocalizationProvider.DefaultAssembly="SmwAceHelper"
+             lex:ResxLocalizationProvider.DefaultDictionary="StringResources"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <u:DirectionConverter x:Key="DirectionConverter"/>
+        <u:HexConverter x:Key="HexConverter"/>
+        <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="CellOrRowHeader"/>
+            <Setter Property="RowHeaderWidth" Value="32"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="KeyboardNavigation.ControlTabNavigation" Value="None"/>
+        </Style>
+        <Style x:Key="DataGridCheckBoxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="IsTabStop" Value="False"/>
+        </Style>
+        <Style x:Key="DataGridHexStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="DataGridEditingHexStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="MaxLength" Value="4"/>
+        </Style>
+        <Style x:Key="DataGridMemoStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="DataGridEditingMemoStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="AcceptsTab" Value="True"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <vm:StrategyViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding Strategy}" SelectedIndex="{Binding SelectedIndex.Value}" Style="{StaticResource DataGridStyle}">
+            <i:Interaction.Behaviors>
+                <v:AttachCommandBindingsBehavior CommandBindings="{Binding CommandBindings}"/>
+                <v:DataGridSelectionBehavior SelectedItem="{Binding SelectedItem.Value, Mode=OneWayToSource}" ColumnIndex="{Binding ColumnIndex.Value, Mode=OneWayToSource}" NextElement="{Binding ElementName=dummy}"/>
+                <v:DragDropRowBehavior Brush="Blue" Thickness="4"/>
+            </i:Interaction.Behaviors>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{lex:Loc COLUMN_DIRECTION}" ClipboardContentBinding="{Binding Direction, Converter={StaticResource DirectionConverter}}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Direction, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" IsTabStop="False">
+                                <ComboBoxItem Content="{lex:Loc DIRECTION_LEFT}" Tag="{x:Static m:PlayerDirection.Left}"/>
+                                <ComboBoxItem Content="{lex:Loc DIRECTION_RIGHT}" Tag="{x:Static m:PlayerDirection.Right}"/>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_PLAYER_X}" Binding="{Binding PlayerX, Converter={StaticResource HexConverter}}" ElementStyle="{StaticResource DataGridHexStyle}" EditingElementStyle="{StaticResource DataGridEditingHexStyle}"/>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_PLAYER_Y}" Binding="{Binding PlayerY, Converter={StaticResource HexConverter}}" ElementStyle="{StaticResource DataGridHexStyle}" EditingElementStyle="{StaticResource DataGridEditingHexStyle}"/>
+                <DataGridCheckBoxColumn Header="{lex:Loc COLUMN_YOSHI}" Binding="{Binding RideOnYoshi, UpdateSourceTrigger=PropertyChanged}" ElementStyle="{StaticResource DataGridCheckBoxStyle}" EditingElementStyle="{StaticResource DataGridCheckBoxStyle}"/>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_YOSHI_X}" Binding="{Binding YoshiX, Converter={StaticResource HexConverter}}" ElementStyle="{StaticResource DataGridHexStyle}" EditingElementStyle="{StaticResource DataGridEditingHexStyle}"/>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_YOSHI_Y}" Binding="{Binding YoshiY, Converter={StaticResource HexConverter}}" ElementStyle="{StaticResource DataGridHexStyle}" EditingElementStyle="{StaticResource DataGridEditingHexStyle}"/>
+                <DataGridCheckBoxColumn Header="{lex:Loc COLUMN_SHELL}" Binding="{Binding HaveShell, UpdateSourceTrigger=PropertyChanged}" ElementStyle="{StaticResource DataGridCheckBoxStyle}" EditingElementStyle="{StaticResource DataGridCheckBoxStyle}"/>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_SHELL_X}" Binding="{Binding ShellX, Converter={StaticResource HexConverter}}" ElementStyle="{StaticResource DataGridHexStyle}" EditingElementStyle="{StaticResource DataGridEditingHexStyle}"/>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_SHELL_Y}" Binding="{Binding ShellY, Converter={StaticResource HexConverter}}" ElementStyle="{StaticResource DataGridHexStyle}" EditingElementStyle="{StaticResource DataGridEditingHexStyle}"/>
+                <DataGridTextColumn Header="{lex:Loc COLUMN_MEMO}" Binding="{Binding Memo}" Width="*" ElementStyle="{StaticResource DataGridMemoStyle}" EditingElementStyle="{StaticResource DataGridEditingMemoStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="dummy" Height="0" VerticalAlignment="Bottom"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="SmwAceHelper.Views.ThumbnailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:vm="clr-namespace:SmwAceHelper.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="230">
+
+    <UserControl.DataContext>
+        <vm:ThumbnailViewModel/>
+    </UserControl.DataContext>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" IsTabStop="True">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="PreviewMouseWheel">
+                <i:CallMethodAction MethodName="ScrollView_PreviewMouseWheel" TargetObject="{Binding}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Canvas Width="{Binding ActualWidth, ElementName=bg}" Height="{Binding ActualHeight, ElementName=bg}">
+            <Canvas.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding ScaleX.Value}" ScaleY="{Binding ScaleY.Value}"/>
+            </Canvas.LayoutTransform>
+            <Image x:Name="bg" Source="/Resources/YI2.png" Stretch="None"/>
+            <Image Source="{Binding SpriteImage.Value}" Canvas.Left="{Binding SpriteX.Value}" Canvas.Top="{Binding SpriteY.Value}" Stretch="None"/>
+        </Canvas>
+    </ScrollViewer>
+</UserControl>

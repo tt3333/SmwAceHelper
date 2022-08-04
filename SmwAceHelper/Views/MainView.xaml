@@ -1,0 +1,132 @@
+﻿<Window x:Class="SmwAceHelper.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        xmlns:u="clr-namespace:SmwAceHelper.Utilities"
+        xmlns:v="clr-namespace:SmwAceHelper.Views"
+        xmlns:vm="clr-namespace:SmwAceHelper.ViewModels"
+        lex:ResxLocalizationProvider.DefaultAssembly="SmwAceHelper"
+        lex:ResxLocalizationProvider.DefaultDictionary="StringResources"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="520"
+        SizeToContent="Height"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
+        MinWidth="{Binding MinWidth.Value}"
+        Title="{Binding Title.Value}">
+
+    <Window.Resources>
+        <u:EnumToBoolConverter x:Key="EnumToBoolConverter"/>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.InputBindings>
+        <KeyBinding Gesture="Insert" Command="{Binding InsertCommand}"/>
+        <KeyBinding Gesture="Ctrl+U" Command="{Binding MoveUpCommand}" CommandParameter="1"/>
+        <KeyBinding Gesture="Ctrl+D" Command="{Binding MoveDownCommand}" CommandParameter="1"/>
+        <KeyBinding Gesture="Ctrl+L" Command="{Binding MoveLeftCommand}" CommandParameter="1"/>
+        <KeyBinding Gesture="Ctrl+R" Command="{Binding MoveRightCommand}" CommandParameter="1"/>
+        <KeyBinding Gesture="Ctrl+Shift+U" Command="{Binding MoveUpCommand}" CommandParameter="16"/>
+        <KeyBinding Gesture="Ctrl+Shift+D" Command="{Binding MoveDownCommand}" CommandParameter="16"/>
+        <KeyBinding Gesture="Ctrl+Shift+L" Command="{Binding MoveLeftCommand}" CommandParameter="16"/>
+        <KeyBinding Gesture="Ctrl+Shift+R" Command="{Binding MoveRightCommand}" CommandParameter="16"/>
+        <KeyBinding Gesture="Ctrl+Alt+L" Command="{Binding MoveLeftCommand}" CommandParameter="256"/>
+        <KeyBinding Gesture="Ctrl+Alt+R" Command="{Binding MoveRightCommand}" CommandParameter="256"/>
+    </Window.InputBindings>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:CallMethodAction MethodName="Window_Loaded" TargetObject="{Binding}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closing">
+            <i:CallMethodAction MethodName="Window_Closing" TargetObject="{Binding}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="DpiChanged">
+            <i:CallMethodAction MethodName="Window_DpiChanged" TargetObject="{Binding}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <i:Interaction.Behaviors>
+        <v:AttachCommandBindingsBehavior CommandBindings="{Binding CommandBindings}"/>
+    </i:Interaction.Behaviors>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding ZoomViewWidth.Value}"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="{Binding ZoomViewHeight.Value}"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="{lex:Loc FILE}">
+                <MenuItem Header="{lex:Loc FILE_NEW}" Command="{x:Static ApplicationCommands.New}"/>
+                <MenuItem Header="{lex:Loc FILE_OPEN}" Command="{x:Static ApplicationCommands.Open}"/>
+                <MenuItem Header="{lex:Loc FILE_RECENT}" ItemsSource="{Binding RecentFiles}">
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="{x:Type MenuItem}">
+                            <Setter Property="Command" Value="{Binding Path=DataContext.RecentFilesCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                            <Setter Property="CommandParameter" Value="{Binding}"/>
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                </MenuItem>
+                <MenuItem Header="{lex:Loc FILE_SAVE}" Command="{x:Static ApplicationCommands.Save}"/>
+                <MenuItem Header="{lex:Loc FILE_SAVE_AS}" Command="{x:Static ApplicationCommands.SaveAs}"/>
+                <Separator/>
+                <MenuItem Header="{lex:Loc FILE_EXIT}" Command="{Binding ExitCommand}" InputGestureText="Alt+F4"/>
+            </MenuItem>
+            <MenuItem Header="{lex:Loc EDIT}">
+                <MenuItem Header="{lex:Loc EDIT_UNDO}" Command="{x:Static ApplicationCommands.Undo}"/>
+                <MenuItem Header="{lex:Loc EDIT_REDO}" Command="{x:Static ApplicationCommands.Redo}"/>
+                <Separator/>
+                <MenuItem Header="{lex:Loc EDIT_COPY}" Command="{x:Static ApplicationCommands.Copy}"/>
+                <MenuItem Header="{lex:Loc EDIT_PASTE}" Command="{x:Static ApplicationCommands.Paste}"/>
+                <Separator/>
+                <MenuItem Header="{lex:Loc EDIT_INSERT}" Command="{Binding InsertCommand}" InputGestureText="Insert"/>
+                <MenuItem Header="{lex:Loc EDIT_DELETE}" Command="{x:Static ApplicationCommands.Delete}"/>
+            </MenuItem>
+            <MenuItem Header="{lex:Loc VIEW}">
+                <MenuItem Header="{lex:Loc THUMBNAIL}">
+                    <MenuItem IsCheckable="True" Header="{lex:Loc THUMBNAIL_50_PERCENT}" IsChecked="{Binding ThumbnailScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=50}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc THUMBNAIL_75_PERCENT}" IsChecked="{Binding ThumbnailScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=75}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc THUMBNAIL_100_PERCENT}" IsChecked="{Binding ThumbnailScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=100}"/>
+                </MenuItem>
+                <MenuItem Header="{lex:Loc ZOOM}">
+                    <MenuItem IsCheckable="True" Header="{lex:Loc ZOOM_4X}" IsChecked="{Binding ZoomScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=4}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc ZOOM_5X}" IsChecked="{Binding ZoomScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=5}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc ZOOM_6X}" IsChecked="{Binding ZoomScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=6}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc ZOOM_7X}" IsChecked="{Binding ZoomScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=7}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc ZOOM_8X}" IsChecked="{Binding ZoomScale.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=8}"/>
+                </MenuItem>
+                <MenuItem Header="{lex:Loc LANGUAGE}">
+                    <MenuItem IsCheckable="True" Header="{lex:Loc LANGUAGE_ENGLISH}" IsChecked="{Binding Language.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=English}"/>
+                    <MenuItem IsCheckable="True" Header="{lex:Loc LANGUAGE_JAPANESE}" IsChecked="{Binding Language.Value, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Japanese}"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="{lex:Loc MOVE}">
+                <MenuItem Header="{lex:Loc MOVE_1PX_UP}" Command="{Binding MoveUpCommand}" CommandParameter="1" InputGestureText="Ctrl+U"/>
+                <MenuItem Header="{lex:Loc MOVE_1PX_DOWN}" Command="{Binding MoveDownCommand}" CommandParameter="1" InputGestureText="Ctrl+D"/>
+                <MenuItem Header="{lex:Loc MOVE_1PX_LEFT}" Command="{Binding MoveLeftCommand}" CommandParameter="1" InputGestureText="Ctrl+L"/>
+                <MenuItem Header="{lex:Loc MOVE_1PX_RIGHT}" Command="{Binding MoveRightCommand}" CommandParameter="1" InputGestureText="Ctrl+R"/>
+                <MenuItem Header="{lex:Loc MOVE_16PX_UP}" Command="{Binding MoveUpCommand}" CommandParameter="16" InputGestureText="Ctrl+Shift+U"/>
+                <MenuItem Header="{lex:Loc MOVE_16PX_DOWN}" Command="{Binding MoveDownCommand}" CommandParameter="16" InputGestureText="Ctrl+Shift+D"/>
+                <MenuItem Header="{lex:Loc MOVE_16PX_LEFT}" Command="{Binding MoveLeftCommand}" CommandParameter="16" InputGestureText="Ctrl+Shift+L"/>
+                <MenuItem Header="{lex:Loc MOVE_16PX_RIGHT}" Command="{Binding MoveRightCommand}" CommandParameter="16" InputGestureText="Ctrl+Shift+R"/>
+                <MenuItem Header="{lex:Loc MOVE_256PX_LEFT}" Command="{Binding MoveLeftCommand}" CommandParameter="256" InputGestureText="Ctrl+Alt+L"/>
+                <MenuItem Header="{lex:Loc MOVE_256PX_RIGHT}" Command="{Binding MoveRightCommand}" CommandParameter="256" InputGestureText="Ctrl+Alt+R"/>
+            </MenuItem>
+        </Menu>
+        <v:ThumbnailView Grid.Row="1" Grid.ColumnSpan="2"/>
+        <v:ZoomView Grid.Row="2"/>
+        <v:StrategyView Grid.Row="2" Grid.Column="1"/>
+    </Grid>
+</Window>
