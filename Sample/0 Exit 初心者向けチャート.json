@@ -1,0 +1,122 @@
+﻿[
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "ポート2に接続されたコントローラの L, Select, Y, B, 右下 を押した状態にしておく。"
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 882,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "ヨッシーが入ったブロックを増殖\r\n(もう少し左に立ってもよいが、この位置より右は駄目)"
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 865,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "正確にこの位置に立つ。\r\nLボタンのみを押して画面を完全に左スクロールさせる。\r\n下ボタンを押してしゃがんでから左ボタンとYボタンを押す。\r\nこれら3つのボタンを押している状態でBボタンを押し続ける。\r\n卵の破片が完全に消えるまでこれらのボタンを離してはならない。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "ヨッシーに乗車する。\r\n右に走り、道中でヨッシーの高さにある全てのきのみを食べ、赤ノコノコとその甲羅を倒す。\r\nまた、緑甲羅に入ろうとしている裸亀を倒す。\r\nこのとき、緑甲羅そのものを倒してはならない。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 234,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "左に走り、コースの最初にある赤甲羅を食べる。\r\nさらに左に走り、8体の亀軍団をデスポーンさせる。\r\n正確にこの位置に立つ。右を向き炎を吐く。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 656,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "きのみを食べるように左に移動し、亀軍団をデスポーンさせる。\r\n亀軍団の下を走り、右端のノコノコを食べる。\r\n正確にこの位置に立つ。右を向き炎を吐く。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 534,
+    "PlayerY": 288,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "亀軍団が画面外に出るまで左に走る。\r\n亀軍団の下を走り、右端のノコノコを食べる。\r\n正確にこの位置に立つ。右を向き炎を吐く。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 570,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "亀軍団が画面外に出るまで左に走る。\r\n亀軍団の下を走り、右端のノコノコを食べる。\r\n正確にこの位置に立つ。右を向き炎を吐く。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 517,
+    "PlayerY": 288,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "亀軍団が画面外に出るまで左に走る。\r\n亀軍団の下を走り、右端のノコノコを食べる。\r\n正確にこの位置に立つ。右を向き炎を吐く。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 713,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "亀軍団が画面外に出るまで左に走る。\r\n亀軍団の下を走り、右端のノコノコを食べる。\r\n正確にこの位置に立つ。右を向き炎を吐く。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "左に走り、3体のノコノコのうち2体を踏むか食べて吐くかして倒す。\r\nヨッシーから飛び降りてノコノコを踏み、甲羅から飛び出させる。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 53,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "赤甲羅を持ち、ステージの左端まで走る。\r\nステージの一番最初でおおよそ以下のピクセルに立ち右を向く。"
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 52,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "素早く左ボタンを押し左を向いて正確に以下のピクセルに立っていることを確認する。"
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 27,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "正確にこの位置までゆっくり左に歩く。\r\n甲羅を上か左に投げ、右に走る。"
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "ヨッシーに乗車し、アイテムスワップ。"
+  }
+]

@@ -1,0 +1,122 @@
+﻿[
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "L, Select, Y, B, Down and Right buttons must be pressed on the controller in the second controller port."
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 882,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "Duplicate the Yoshi block."
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 865,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "Stand in this spot exactly.\r\nScroll the screen all the way to the left by pressing and holding the left shoulder button, and no other buttons.\r\nPress and hold down to duck, then press and hold left and Y, then press and hold B.\r\nDon’t let go of any of those buttons until the 1-Up egg has completely finished spawning, and all of its shell fragments have disappeared completely from the screen."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "Get on Yoshi.\r\nRun to the right, collecting any mouth-height berries along the way, and kill the red koopa shell, and the red koopa that jumps into it. Also kill the koopa that jumps into the green shell, but not the green shell itself."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 234,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "Run all the way to the left, using Yoshi’s tongue to pick up the red shell at the very beginning of the level.\r\nRun far enough left that all eight koopas walking on the ledge unload.\r\nStand in this exact spot, face right, and spit out the red shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 656,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "Go to the left to eat the berry, and to make sure that all the walking koopas are unloaded.\r\nRun to the right past all the koopas, then turn around and use Yoshi’s tongue to grab the rightmost koopa.\r\nStand in this exact spot, face right, and spit out the red shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 534,
+    "PlayerY": 288,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "Run left until the koopa ledge is no longer in view. This will unload all the koopas.\r\nRun to the right past all the koopas, then turn around and use Yoshi’s tongue to grab the rightmost koopa.\r\nStand in this exact spot, face right, and spit out the red shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 570,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "Run left until the koopa ledge is no longer in view. This will unload all the koopas.\r\nRun to the right past all the koopas, then turn around and use Yoshi’s tongue to grab the rightmost koopa.\r\nStand in this exact spot, face right, and spit out the red shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 517,
+    "PlayerY": 288,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "Run left until the koopa ledge is no longer in view. This will unload all the koopas.\r\nRun to the right past all the koopas, then turn around and use Yoshi’s tongue to grab the rightmost koopa.\r\nStand in this exact spot, face right, and spit out the red shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 713,
+    "PlayerY": 336,
+    "RideOnYoshi": true,
+    "HaveShell": true,
+    "Memo": "Run left until the koopa ledge is no longer in view. This will unload all the koopas.\r\nRun to the right past all the koopas, then turn around and use Yoshi’s tongue to grab the rightmost koopa.\r\nStand in this exact spot, face right, and spit out the red shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "Run to the left, and kill any two of the three koopas by either stomping them or eating/spitting them with Yoshi.\r\nJump off of Yoshi, and jump on the walking koopa to knock the koopa out of its shell."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": 53,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "Grab the red shell and run to the very left end of the level with it.\r\nAt the very beginning of the level, face right in roughly this spot."
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 52,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "Turn around to face left with a quick left button tap, such that you’re standing on exactly this pixel."
+  },
+  {
+    "Direction": "Left",
+    "PlayerX": 27,
+    "PlayerY": 352,
+    "RideOnYoshi": false,
+    "HaveShell": true,
+    "Memo": "Walk slowly to the left until you’re standing in exactly this spot.\r\nKick the koopa shell upward or to the left, and run to the right."
+  },
+  {
+    "Direction": "Right",
+    "PlayerX": null,
+    "PlayerY": null,
+    "RideOnYoshi": false,
+    "HaveShell": false,
+    "Memo": "Get back on Yoshi.\r\nItem Swap"
+  }
+]
