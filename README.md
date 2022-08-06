@@ -8,6 +8,8 @@ Traditionally, it has been a time-consuming task to find out the location where 
 
 I believe that playing while looking at the screen of this tool is like playing while looking at a screenshot of a Google Docs and it is not counted as cheating.
 
+![image](image.png)
+
 ## Operating Environment
 
 I have tested only on Windows 10 (64bit), but it may work on Windows 7 or later.
