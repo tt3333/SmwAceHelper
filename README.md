@@ -14,8 +14,8 @@ I believe that playing while looking at the screen of this tool is like playing 
 
 I have tested only on Windows 10 (64bit), but it may work on Windows 7 or later.
 
-If .NET 6.0 desktop runtime is not installed, please download and install it from<br>
-https://dotnet.microsoft.com/ja-jp/download/dotnet/6.0/runtime
+If .NET 6.0 Desktop Runtime is not installed, please download and install it from<br>
+https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime
 
 ## How to Use
 
