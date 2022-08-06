@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
-    <Version>0.0.0.1</Version>
+    <Version>1.0.0.0</Version>
     <Authors>T.T</Authors>
     <Copyright>© 2022 T.T</Copyright>
     <Product>SMW ACE Helper</Product>
